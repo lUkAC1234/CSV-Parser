@@ -1,0 +1,28 @@
+@use "assets/styles/helpers/functions";
+
+*:not(html):not(body) {
+    &::-webkit-scrollbar {
+        height: functions.rem(4);
+        width: functions.rem(4);
+    }
+
+    &::-webkit-scrollbar-track {
+        background: transparent;
+        margin-inline: functions.rem(2);
+        border-radius: functions.rem(8);
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background: rgba(0, 0, 0, 0.18);
+        border-radius: functions.rem(8);
+        min-width: functions.rem(24);
+        transition:
+            background 150ms ease,
+            transform 120ms ease;
+        border: functions.rem(2) solid rgba(255, 255, 255, 0);
+    }
+
+    &::-webkit-scrollbar-thumb:active {
+        background: rgba(0, 0, 0, 0.36);
+    }
+}

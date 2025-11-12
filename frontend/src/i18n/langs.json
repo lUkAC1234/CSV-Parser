@@ -1,0 +1,7 @@
+{
+    "langs": [
+        { "id": "en", "children": "English", "flag": "us" },
+        { "id": "ru", "children": "Русский", "flag": "ru" },
+        { "id": "uz", "children": "O'zbek", "flag": "uz" }
+    ]
+}

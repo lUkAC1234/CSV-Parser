@@ -1,0 +1,18 @@
+{
+    "pages": {
+        "home": "Home",
+        "channels": "Channels",
+        "streams": "Streams",
+        "ads": "Advertising",
+        "404": "404 - Page not found"
+    },
+    "footer": {
+        "assist-text": "We are always ready to help you.",
+        "rights-reserved": "All rights reserved.",
+        "company-project": "A project by",
+        "company-link-title": "Go to Enzora website — a web studio for website creation"
+    },
+    "page-404": {
+        "description": "Page not found. It may have been removed or you followed an incorrect link."
+    }
+}

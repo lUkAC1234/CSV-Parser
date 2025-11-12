@@ -1,0 +1,14 @@
+.main {
+    display: block;
+    width: 100%;
+    height: auto;
+
+    &--resizing {
+        overflow-y: hidden;
+    }
+}
+
+.wrapper {
+    display: block;
+    position: relative;
+}

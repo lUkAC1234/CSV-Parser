@@ -1,0 +1,45 @@
+@use "assets/styles/helpers/functions";
+@use "assets/styles/helpers/variables";
+@use "sass:color";
+
+html {
+    height: 100%;
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+    -webkit-font-smoothing: antialiased;
+
+    &.hide-scrollbar {
+        overflow: hidden;
+    }
+}
+
+body {
+    min-height: 100%;
+    font-feature-settings:
+        "pnum" on,
+        "lnum" on;
+    background: var(--base-color);
+
+    &.hide-scrollbar {
+        overflow: hidden;
+    }
+}
+
+hr {
+    border: none;
+    height: functions.rem(1);
+    background: var(--secondary-color);
+
+    @media screen and (max-width: 639px) {
+        width: calc(100% - var(--base-padding) * 2);
+        margin-inline: auto;
+    }
+}
+
+#app {
+    display: flex;
+    flex-flow: column;
+    justify-content: space-between;
+    height: 100dvh;
+}

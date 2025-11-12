@@ -1,0 +1,317 @@
+{
+    "ru": {
+        "draw": {
+            "toolbar": {
+                "actions": {
+                    "title": "Отменить рисование",
+                    "text": "Отмена"
+                },
+                "finish": {
+                    "title": "Завершить рисование",
+                    "text": "Завершить"
+                },
+                "undo": {
+                    "title": "Удалить последнюю точку",
+                    "text": "Удалить последнюю точку"
+                },
+                "buttons": {
+                    "polyline": "Нарисовать линию",
+                    "polygon": "Нарисовать многоугольник",
+                    "rectangle": "Нарисовать прямоугольник",
+                    "circle": "Нарисовать круг",
+                    "marker": "Поставить маркер",
+                    "circlemarker": "Поставить круглый маркер"
+                }
+            },
+            "handlers": {
+                "circle": {
+                    "tooltip": {
+                        "start": "Кликните и перетащите, чтобы нарисовать круг"
+                    }
+                },
+                "marker": {
+                    "tooltip": {
+                        "start": "Кликните на карту, чтобы поставить маркер"
+                    }
+                },
+                "polygon": {
+                    "tooltip": {
+                        "start": "Кликните для начала рисования фигуры",
+                        "cont": "Кликните, чтобы продолжить рисовать фигуру",
+                        "end": "Кликните первую точку, чтобы завершить"
+                    },
+                    "error": "Вам нужно нарисовать как минимум 3 точки."
+                },
+                "polyline": {
+                    "tooltip": {
+                        "start": "Кликните для начала рисования линии",
+                        "cont": "Кликните, чтобы продолжить рисовать линию",
+                        "end": "Кликните последнюю точку, чтобы завершить"
+                    },
+                    "error": "Вам нужно нарисовать как минимум 2 точки."
+                },
+                "rectangle": {
+                    "tooltip": {
+                        "start": "Кликните и перетащите, чтобы нарисовать прямоугольник"
+                    }
+                },
+                "simpleshape": {
+                    "tooltip": {
+                        "end": "Отпустите кнопку мыши, чтобы завершить"
+                    }
+                }
+            }
+        },
+        "edit": {
+            "toolbar": {
+                "actions": {
+                    "save": {
+                        "title": "Сохранить изменения",
+                        "text": "Сохранить"
+                    },
+                    "clearAll": {
+                        "title": "Удалить все слои",
+                        "text": "Очистить все"
+                    },
+                    "revert": {
+                        "title": "Отменить изменения",
+                        "text": "Отменить"
+                    }
+                },
+                "buttons": {
+                    "edit": {
+                        "title": "Редактировать слои",
+                        "text": "Редактировать"
+                    },
+                    "remove": {
+                        "title": "Удалить слои",
+                        "text": "Удалить"
+                    }
+                }
+            },
+            "handlers": {
+                "edit": {
+                    "tooltip": {
+                        "text": "Перетащите маркеры или точки, чтобы отредактировать",
+                        "subtext": "Нажмите 'Отменить', чтобы отменить"
+                    }
+                },
+                "remove": {
+                    "tooltip": {
+                        "text": "Кликните на объект, чтобы удалить его"
+                    }
+                }
+            }
+        }
+    },
+    "oz": {
+        "draw": {
+            "toolbar": {
+                "actions": {
+                    "title": "Chizishni bekor qilish",
+                    "text": "Bekor qilish"
+                },
+                "finish": {
+                    "title": "Chizishni tugatish",
+                    "text": "Tugatish"
+                },
+                "undo": {
+                    "title": "Oxirgi nuqtani o‘chirish",
+                    "text": "O‘chirish"
+                },
+                "buttons": {
+                    "polyline": "Chiziq chizish",
+                    "polygon": "Ko‘pburchak chizish",
+                    "rectangle": "To‘g‘ri to‘rtburchak chizish",
+                    "circle": "Doira chizish",
+                    "marker": "Marker qo‘yish",
+                    "circlemarker": "Doira marker qo‘yish"
+                }
+            },
+            "handlers": {
+                "circle": {
+                    "tooltip": {
+                        "start": "Doira chizish uchun bosing va torting"
+                    }
+                },
+                "marker": {
+                    "tooltip": {
+                        "start": "Marker qo‘yish uchun xaritaga bosing"
+                    }
+                },
+                "polygon": {
+                    "tooltip": {
+                        "start": "Shakl chizishni boshlash uchun bosing",
+                        "cont": "Shakl chizishni davom ettirish uchun bosing",
+                        "end": "Yakunlash uchun birinchi nuqtaga bosing"
+                    },
+                    "error": "Kamida 3 ta nuqta chizishingiz kerak."
+                },
+                "polyline": {
+                    "tooltip": {
+                        "start": "Chiziq chizishni boshlash uchun bosing",
+                        "cont": "Chiziq chizishni davom ettirish uchun bosing",
+                        "end": "Tugatish uchun oxirgi nuqtaga bosing"
+                    },
+                    "error": "Kamida 2 ta nuqta chizishingiz kerak."
+                },
+                "rectangle": {
+                    "tooltip": {
+                        "start": "To‘g‘ri to‘rtburchak chizish uchun bosing va torting"
+                    }
+                },
+                "simpleshape": {
+                    "tooltip": {
+                        "end": "Yakunlash uchun sichqonchani qo‘yib yuboring"
+                    }
+                }
+            }
+        },
+        "edit": {
+            "toolbar": {
+                "actions": {
+                    "save": {
+                        "title": "O‘zgarishlarni saqlash",
+                        "text": "Saqlash"
+                    },
+                    "clearAll": {
+                        "title": "Barcha qatlamlarni o‘chirish",
+                        "text": "Barchasini tozalash"
+                    },
+                    "revert": {
+                        "title": "O‘zgarishlarni bekor qilish",
+                        "text": "Bekor qilish"
+                    }
+                },
+                "buttons": {
+                    "edit": {
+                        "title": "Qatlamlarni tahrirlash",
+                        "text": "Tahrirlash"
+                    },
+                    "remove": {
+                        "title": "Qatlamlarni o‘chirish",
+                        "text": "O‘chirish"
+                    }
+                }
+            },
+            "handlers": {
+                "edit": {
+                    "tooltip": {
+                        "text": "Tahrirlash uchun tutqichlar yoki markerni torting",
+                        "subtext": "Bekor qilish uchun 'Bekor qilish' tugmasini bosing"
+                    }
+                },
+                "remove": {
+                    "tooltip": {
+                        "text": "O‘chirish uchun obyekt ustiga bosing"
+                    }
+                }
+            }
+        }
+    },
+    "uz": {
+        "draw": {
+            "toolbar": {
+                "actions": {
+                    "title": "Чизишни бекор қилиш",
+                    "text": "Бекор қилиш"
+                },
+                "finish": {
+                    "title": "Чизишни тугатиш",
+                    "text": "Тугатиш"
+                },
+                "undo": {
+                    "title": "Охирги нуқтани ўчириш",
+                    "text": "Ўчириш"
+                },
+                "buttons": {
+                    "polyline": "Чизиқ чизиш",
+                    "polygon": "Кўпбурчак чизиш",
+                    "rectangle": "Тўғри тўртбурчак чизиш",
+                    "circle": "Доира чизиш",
+                    "marker": "Маркер қўйиш",
+                    "circlemarker": "Доира маркер қўйиш"
+                }
+            },
+            "handlers": {
+                "circle": {
+                    "tooltip": {
+                        "start": "Доира чизиш учун босинг ва тортинг"
+                    }
+                },
+                "marker": {
+                    "tooltip": {
+                        "start": "Маркер қўйиш учун харитага босинг"
+                    }
+                },
+                "polygon": {
+                    "tooltip": {
+                        "start": "Шакл чизишни бошлаш учун босинг",
+                        "cont": "Шакл чизишни давом этиш учун босинг",
+                        "end": "Якунлаш учун биринчи нуқтага босинг"
+                    },
+                    "error": "Камида 3 та нуқта чизишингиз керак."
+                },
+                "polyline": {
+                    "tooltip": {
+                        "start": "Чизиқ чизишни бошлаш учун босинг",
+                        "cont": "Чизиқ чизишни давом этиш учун босинг",
+                        "end": "Якунлаш учун охирги нуқтага босинг"
+                    },
+                    "error": "Камида 2 та нуқта чизишингиз керак."
+                },
+                "rectangle": {
+                    "tooltip": {
+                        "start": "Тўғри тўртбурчак чизиш учун босинг ва тортинг"
+                    }
+                },
+                "simpleshape": {
+                    "tooltip": {
+                        "end": "Якунлаш учун сичқончани қўйиб юборинг"
+                    }
+                }
+            }
+        },
+        "edit": {
+            "toolbar": {
+                "actions": {
+                    "save": {
+                        "title": "Ўзгаришларни сақлаш",
+                        "text": "Сақлаш"
+                    },
+                    "clearAll": {
+                        "title": "Барча қатламларни ўчириш",
+                        "text": "Барчасини тозалаш"
+                    },
+                    "revert": {
+                        "title": "Ўзгаришларни бекор қилиш",
+                        "text": "Бекор қилиш"
+                    }
+                },
+                "buttons": {
+                    "edit": {
+                        "title": "Қатламларни таҳрирлаш",
+                        "text": "Таҳрирлаш"
+                    },
+                    "remove": {
+                        "title": "Қатламларни ўчириш",
+                        "text": "Ўчириш"
+                    }
+                }
+            },
+            "handlers": {
+                "edit": {
+                    "tooltip": {
+                        "text": "Таҳрирлаш учун тутқичлар ёки маркерни тортинг",
+                        "subtext": "Бекор қилиш учун 'Бекор қилиш' тугмасини босинг"
+                    }
+                },
+                "remove": {
+                    "tooltip": {
+                        "text": "Ўчириш учун объект устига босинг"
+                    }
+                }
+            }
+        }
+    }
+}

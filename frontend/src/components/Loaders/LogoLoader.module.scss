@@ -1,0 +1,84 @@
+@use "assets/styles/helpers/functions";
+
+.logo-loader-wrapper-for-all {
+    z-index: 9999;
+}
+
+.absolute {
+    position: absolute;
+}
+
+.inline-block {
+    display: inline-block;
+}
+
+.logo-loader {
+    display: flex;
+    align-items: center;
+
+    @media screen and (max-width: 639px) {
+    }
+}
+
+.w-2 {
+    width: functions.rem(16);
+}
+
+.dash {
+    animation:
+        dashArray 3s ease-in-out infinite,
+        dashOffset 3s linear infinite;
+    stroke-dasharray: 0 1 359 0;
+}
+
+@keyframes dashArray {
+    0% {
+        stroke-dasharray: 0 1 359 0;
+    }
+
+    50% {
+        stroke-dasharray: 0 359 1 0;
+    }
+
+    100% {
+        stroke-dasharray: 359 1 0 0;
+    }
+}
+
+@keyframes dashOffset {
+    0% {
+        stroke-dashoffset: 365;
+    }
+
+    100% {
+        stroke-dashoffset: 5;
+    }
+}
+
+.logo-loader svg {
+    width: clamp(functions.rem(60), 17vw, functions.rem(600));
+    aspect-ratio: 1 / 1;
+    height: auto;
+}
+
+.logo-loader text {
+    pointer-events: none;
+    user-select: none;
+}
+
+.logo-loader__fullsize-centered-wrapper {
+    width: 100%;
+}
+
+.logo-loader__center-fixed-wrapper {
+    position: fixed;
+    inset: 0;
+}
+
+.logo-loader__fullsize-centered-wrapper,
+.logo-loader__center-fixed-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: var(--linear-background);
+}

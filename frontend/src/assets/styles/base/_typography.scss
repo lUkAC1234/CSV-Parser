@@ -1,0 +1,251 @@
+@use "assets/styles/helpers/functions";
+
+$base-radius: 4;
+$base-padding: 16;
+$base-padding-mobile: 8;
+$base-gap: 16;
+$base-gap-mobile: 12;
+$small-margin: 16;
+$large-margin: 24;
+
+$inner-radius: functions.rem($base-radius);
+$outer-radius: functions.rem($base-radius + $base-padding);
+
+:root {
+    --base-padding: #{functions.rem($base-padding)};
+    --inner-radius: #{$inner-radius};
+    --outer-radius: #{$outer-radius};
+    --base-gap: #{functions.rem($base-gap)};
+    --small-margin: #{functions.rem($small-margin)};
+    --large-margin: #{functions.rem($large-margin)};
+    --container: min(100%, #{functions.rem(1920)});
+    --transition: 300ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@media screen and (max-width: 639px) {
+    :root {
+        --base-padding: #{functions.rem($base-padding-mobile)};
+        --base-gap: #{functions.rem($base-gap-mobile)};
+        --small-margin: #{calc(functions.rem($small-margin) / 2)};
+        --large-margin: #{calc(functions.rem($large-margin) / 2)};
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    :root {
+        --transition: 0ms linear;
+    }
+}
+
+html {
+    font-size: calc((100vw - var(--vw-min-px)) / (var(--vw-max) - var(--vw-min)) * (var(--f-max) - var(--f-min)) + var(--f-min-px)) !important;
+}
+
+* {
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-family: var(--font);
+    line-height: 1.4;
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+    color: var(--text-color);
+    -webkit-text-size-adjust: 100%;
+    font-size: functions.rem(16);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    line-height: 1;
+    color: var(--black);
+}
+
+button,
+a,
+strong {
+    color: var(--black);
+}
+
+h1,
+h2 {
+    font-size: functions.rem(48);
+    font-weight: var(--font-weight-bold);
+}
+
+h3 {
+    font-size: functions.rem(32);
+}
+
+h4 {
+    font-size: functions.rem(28);
+}
+
+h5 {
+    font-size: functions.rem(24);
+}
+
+h6 {
+    font-size: functions.rem(22);
+}
+
+h3,
+h4,
+h5,
+h6,
+strong {
+    font-weight: var(--font-weight-medium);
+}
+
+p,
+div,
+a,
+li,
+dd,
+dt,
+blockquote,
+span,
+time,
+em,
+i,
+mark,
+del,
+button,
+svg {
+    font-size: functions.rem(20);
+    font-weight: var(--font-weight-regular);
+}
+
+svg {
+    width: functions.rem(20);
+    height: functions.rem(20);
+}
+
+small {
+    font-size: functions.rem(12);
+}
+
+code {
+    font-family: "Courier New", monospace;
+    font-size: functions.rem(14);
+    font-weight: var(--font-weight-regular);
+}
+
+strong,
+b,
+label,
+a {
+    font-size: inherit;
+}
+
+@media screen and (max-width: 1280px) {
+    h1,
+    h2 {
+        font-size: functions.rem(44);
+        font-weight: var(--font-weight-bold);
+    }
+
+    h3 {
+        font-size: functions.rem(28);
+    }
+
+    h4 {
+        font-size: functions.rem(24);
+    }
+
+    h5 {
+        font-size: functions.rem(22);
+    }
+
+    h6 {
+        font-size: functions.rem(21);
+    }
+
+    small {
+        font-size: functions.rem(12);
+    }
+
+    code {
+        font-size: functions.rem(14);
+    }
+
+    p,
+    div,
+    a,
+    li,
+    dd,
+    dt,
+    blockquote,
+    span,
+    time,
+    em,
+    i,
+    mark,
+    del,
+    button,
+    svg {
+        font-size: functions.rem(18);
+        font-weight: var(--font-weight-regular);
+    }
+
+    svg {
+        width: functions.rem(18);
+        height: functions.rem(18);
+    }
+}
+
+@media screen and (max-width: 639px) {
+
+    h1,
+    h2 {
+        font-size: functions.rem(36);
+        font-weight: var(--font-weight-bold);
+    }
+
+    small {
+        font-size: functions.rem(12);
+    }
+
+    code {
+        font-size: functions.rem(13);
+    }
+
+    p,
+    div,
+    a,
+    li,
+    dd,
+    dt,
+    blockquote,
+    span,
+    time,
+    em,
+    i,
+    mark,
+    del,
+    button,
+    svg {
+        font-size: functions.rem(16);
+        font-weight: var(--font-weight-regular);
+    }
+
+    svg {
+        width: functions.rem(16);
+        height: functions.rem(16);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    * {
+        transition: none !important;
+        animation-duration: 0.001ms !important;
+        animation-iteration-count: 1 !important;
+    }
+}

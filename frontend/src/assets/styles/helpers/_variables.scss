@@ -1,0 +1,17 @@
+@use "../plugins/vuetify/variables";
+@use "sass:map";
+
+$base-fz: 16;
+
+$k4: 3200px;
+$k2: 2500px;
+$notebook-view: 1366px;
+$tablet-view: 1280px;
+$mobile-view: 639px;
+
+$md-and-down: map.get(variables.$display-breakpoints, "md-and-down");
+$lgAndDown: map.get(variables.$display-breakpoints, "lg-and-down");
+$lgAndUp: map.get(variables.$display-breakpoints, "lg-and-up");
+$xsOnly: map.get(variables.$display-breakpoints, "xs-only");
+$smAndUp: map.get(variables.$display-breakpoints, "sm-and-up");
+$smAndDown: map.get(variables.$display-breakpoints, "sm-and-down");

@@ -1,0 +1,37 @@
+@use "assets/styles/helpers/functions";
+
+progress.progress {
+    display: block;
+    all: unset;
+    appearance: none;
+    width: 100%;
+    height: functions.rem(2);
+    background-color: transparent;
+    border: none;
+    opacity: 0;
+    z-index: 1000000;
+    transition: all 300ms;
+    position: fixed;
+    left: 0;
+    top: 0;
+
+    &--active {
+        opacity: 1;
+    }
+}
+
+progress.progress::-webkit-progress-bar {
+    background-color: transparent;
+}
+
+progress.progress::-webkit-progress-value {
+    background-color: var(--accent-color);
+}
+
+progress.progress::-moz-progress-bar {
+    background-color: var(--accent-color);
+}
+
+progress.progress::-ms-fill {
+    background-color: var(--accent-color);
+}

@@ -1,0 +1,73 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+
+$font: "Montserrat", serif;
+
+:root {
+    --font: #{$font} !important;
+    --primary-color: #1a2ffb;
+}
+
+*:not(span) {
+    font-family: var(--font) !important;
+}
+
+.related-widget-wrapper>div {
+    display: flex;
+    flex-flow: row;
+    gap: 1rem;
+    flex-wrap: wrap;
+
+    div,
+    span {
+        cursor: pointer !important;
+    }
+}
+
+.grow.relative {
+    input:not([type="checkbox"]):not([type="radio"]),
+    textarea {
+        padding: 0.5rem 1rem;
+        border-radius: 6px;
+        border: 1px solid rgb(229, 231, 235);
+        width: min(100%, 42rem);
+
+        &:focus {
+            outline-color: #1a2ffb;
+        }
+    }
+
+
+    .border {
+
+        input,
+        textarea {
+            border: none;
+        }
+    }
+}
+
+.parler-language-tabs {
+    border-bottom: 2px solid var(--primary-color) !important;
+
+    span {
+        color: #111827 !important;
+    }
+
+    span.current {
+        background-color: var(--primary-color) !important;
+        border-color: var(--primary-color) !important;
+        color: #fff !important;
+    }
+
+    span.available {
+        border-color: rgb(229, 231, 235) !important;
+    }
+}
+
+html.dark {
+    .parler-language-tabs {
+        span {
+            color: #fff !important;
+        }
+    }
+}

@@ -1,0 +1,57 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+:root {
+  --font: Montserrat, serif !important;
+  --primary-color: #1a2ffb;
+}
+
+*:not(span) {
+  font-family: var(--font) !important;
+}
+
+.related-widget-wrapper > div {
+  display: flex;
+  flex-flow: row;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+.related-widget-wrapper > div div,
+.related-widget-wrapper > div span {
+  cursor: pointer !important;
+}
+
+.grow.relative input:not([type=checkbox]):not([type=radio]),
+.grow.relative textarea {
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  border: 1px solid rgb(229, 231, 235);
+  width: min(100%, 42rem);
+}
+.grow.relative input:not([type=checkbox]):not([type=radio]):focus,
+.grow.relative textarea:focus {
+  outline-color: #1a2ffb;
+}
+.grow.relative .border input,
+.grow.relative .border textarea {
+  border: none;
+}
+
+.parler-language-tabs {
+  border-bottom: 2px solid var(--primary-color) !important;
+}
+.parler-language-tabs span {
+  color: #111827 !important;
+}
+.parler-language-tabs span.current {
+  background-color: var(--primary-color) !important;
+  border-color: var(--primary-color) !important;
+  color: #fff !important;
+}
+.parler-language-tabs span.available {
+  border-color: rgb(229, 231, 235) !important;
+}
+
+html.dark .parler-language-tabs span {
+  color: #fff !important;
+}
+
+/*# sourceMappingURL=__admin.css.map */

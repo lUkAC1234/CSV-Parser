@@ -1,0 +1,41 @@
+:root {
+    --view-transition-duration: 300ms;
+}
+
+main {
+    view-transition-name: main;
+}
+
+@keyframes fade-out {
+    from {
+        opacity: 1;
+        transform: scale(1);
+    }
+    to {
+        opacity: 0;
+        transform: scale(0.99);
+    }
+}
+
+@keyframes fade-in {
+    from {
+        opacity: 0;
+        transform: scale(0.99);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+::view-transition-old(main) {
+    animation: fade-out var(--view-transition-duration) ease-out both;
+}
+
+::view-transition-new(main) {
+    animation: fade-in var(--view-transition-duration) var(--view-transition-duration) ease-in both;
+}
+
+::view-transition-group(main) {
+    animation-duration: calc(var(--view-transition-duration) * 2);
+}

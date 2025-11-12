@@ -1,0 +1,57 @@
+.imageWrapper {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
+    position: relative;
+
+    &.no_image_height {
+        .mainImage {
+            height: unset;
+        }
+    }
+
+    &.aspect_16_9 {
+        aspect-ratio: 16 / 9;
+    }
+
+    &.no_aspect {
+        aspect-ratio: unset;
+    }
+}
+
+.thumbnailImage {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transform: scale(1.02);
+    filter: blur(10px) saturate(0.9);
+    transition:
+        opacity 300ms ease,
+        filter 300ms ease,
+        transform 300ms ease;
+    will-change: opacity, filter;
+    pointer-events: none;
+    user-select: none;
+    z-index: 1;
+}
+
+.thumbnailLoaded {
+    opacity: 1;
+}
+
+.mainImage {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition:
+        opacity 300ms ease,
+        transform 300ms ease;
+    opacity: 0;
+    transform: translateZ(0);
+    z-index: 2;
+}
+
+.mainImageLoaded {
+    opacity: 1;
+}

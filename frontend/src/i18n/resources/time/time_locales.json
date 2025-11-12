@@ -1,0 +1,110 @@
+{
+    "ru": {
+        "dateMonths": [
+            "Январь",
+            "Февраль",
+            "Март",
+            "Апрель",
+            "Май",
+            "Июнь",
+            "Июль",
+            "Август",
+            "Сентябрь",
+            "Октябрь",
+            "Ноябрь",
+            "Декабрь"
+        ],
+        "dateMonths2": [
+            "Января",
+            "Февраля",
+            "Марта",
+            "Апреля",
+            "Мая",
+            "Июня",
+            "Июля",
+            "Августа",
+            "Сентября",
+            "Октября",
+            "Ноября",
+            "Декабря"
+        ],
+        "dateMonthsShort": ["Янв", "Фев", "Март", "Апр", "Май", "Июн", "Июл", "Авг", "Сен", "Окт", "Ноя", "Дек"],
+        "weekdays": ["Воскресенье", "Понедельник", "Вторник", "Среда", "Четверг", "Пятница", "Суббота"],
+        "weekdaysShort": ["Вск", "Пон", "Вто", "Сре", "Чет", "Пят", "Суб"],
+        "weekdaysMin": ["Вс", "Пн", "Вт", "Ср", "Чт", "Пт", "Сб"],
+        "days": ["Вс", "Пн", "Вт", "Ср", "Чт", "Пт", "Сб"],
+        "months": ["Янв", "Фев", "Март", "Апр", "Май", "Июн", "Июл", "Авг", "Сен", "Окт", "Ноя", "Дек"]
+    },
+    "uz": {
+        "dateMonths": [
+            "Yanvar",
+            "Fevral",
+            "Mart",
+            "Aprel",
+            "May",
+            "Iyun",
+            "Iyul",
+            "Avgust",
+            "Sentyabr",
+            "Oktyabr",
+            "Noyabr",
+            "Dekabr"
+        ],
+        "dateMonths2": [
+            "Yanvar",
+            "Fevral",
+            "Mart",
+            "Aprel",
+            "May",
+            "Iyun",
+            "Iyul",
+            "Avgust",
+            "Sentyabr",
+            "Oktyabr",
+            "Noyabr",
+            "Dekabr"
+        ],
+        "dateMonthsShort": ["Yan", "Fev", "Mart", "Apr", "May", "Iyun", "Iyul", "Avg", "Sen", "Okt", "Noy", "Dek"],
+        "weekdays": ["Yakshanba", "Dushanba", "Seshanba", "Chorshanba", "Payshanba", "Juma", "Shanba"],
+        "weekdaysShort": ["Ya", "Du", "Se", "Cho", "Pa", "Ju", "Sha"],
+        "weekdaysMin": ["Ya", "Du", "Se", "Cho", "Pa", "Ju", "Sha"],
+        "days": ["Ya", "Du", "Se", "Cho", "Pa", "Ju", "Sha"],
+        "months": ["Yan", "Fev", "Mart", "Apr", "May", "Iyun", "Iyul", "Avg", "Sen", "Okt", "Noy", "Dek"]
+    },
+    "en": {
+        "dateMonths": [
+            "January",
+            "February",
+            "March",
+            "April",
+            "May",
+            "June",
+            "July",
+            "August",
+            "September",
+            "October",
+            "November",
+            "December"
+        ],
+        "dateMonths2": [
+            "January",
+            "February",
+            "March",
+            "April",
+            "May",
+            "June",
+            "July",
+            "August",
+            "September",
+            "October",
+            "November",
+            "December"
+        ],
+        "dateMonthsShort": ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+        "weekdays": ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+        "weekdaysShort": ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"],
+        "weekdaysMin": ["Su", "Mo", "Tu", "We", "Th", "Fr", "Sa"],
+        "days": ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"],
+        "months": ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
+    }
+}

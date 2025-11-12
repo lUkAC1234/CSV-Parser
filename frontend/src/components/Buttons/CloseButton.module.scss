@@ -1,0 +1,47 @@
+@use "assets/styles/helpers/functions";
+
+.close-button {
+    display: block;
+    position: relative;
+    width: functions.rem(24);
+    height: functions.rem(24);
+    transition: transform 300ms;
+    background: transparent;
+    border: none;
+    z-index: var(--z-base);
+
+    &--absolute {
+        position: absolute;
+    }
+
+    &--fixed {
+        position: fixed;
+    }
+
+    &--left {
+        left: calc(var(--base-padding) / 4);
+    }
+
+    &--right {
+        right: calc(var(--base-padding) / 4);
+    }
+
+    &--top {
+        top: calc(var(--base-padding) / 4);
+    }
+
+    &--bottom {
+        bottom: calc(var(--base-padding) / 4);
+    }
+
+    &:hover {
+        transform: scale(1.125) rotate(180deg);
+    }
+}
+
+.close-button__svg {
+    display: block;
+    width: functions.rem(24);
+    height: functions.rem(24);
+    pointer-events: none;
+}

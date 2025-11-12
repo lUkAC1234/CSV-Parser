@@ -1,0 +1,76 @@
+@use "assets/styles/helpers/functions";
+
+.internet-state {
+    position: fixed;
+    left: 0;
+    top: 0;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    transition: all 300ms ease;
+    transition-delay: 1s;
+    opacity: 0;
+    visibility: hidden;
+    z-index: var(-z-background);
+    padding-bottom: functions.rem(300);
+
+    &--active {
+        visibility: visible;
+        transition-delay: 0s;
+        opacity: 1;
+        z-index: var(--z-top);
+    }
+}
+
+@keyframes scaleIn {
+    from {
+        transform: scale(0);
+    }
+    to {
+        transform: scale(1);
+    }
+}
+
+.svg-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: functions.rem(128);
+    height: functions.rem(128);
+
+    svg {
+        position: absolute;
+        width: functions.rem(128);
+        height: functions.rem(128);
+        opacity: 0;
+        transition: all 300ms ease;
+    }
+
+    svg g,
+    svg path {
+        fill: var(--white);
+    }
+
+    #no-wifi,
+    #wifi {
+        scale: 0;
+    }
+
+    &--no-wifi {
+        #no-wifi {
+            opacity: 1;
+            scale: 1;
+        }
+    }
+
+    &--wifi {
+        #wifi {
+            opacity: 1;
+            scale: 1;
+        }
+    }
+}

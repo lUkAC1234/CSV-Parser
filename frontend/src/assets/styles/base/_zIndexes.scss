@@ -1,0 +1,17 @@
+:root {
+    /* Base layout layers */
+    --z-background: -1; /* Background images, decorations */
+    --z-base: 0; /* Background images, decorations */
+    --z-base-upper: 1; /* Default content level */
+    --z-content: 2; /* Main UI content */
+
+    /* UI components */
+    --z-layout: 3; /* Fixed/sticky headers/footers */
+    --z-dropdown: 4; /* Dropdowns, menus */
+    --z-overlay: 5; /* Overlays behind modals */
+    --z-modal: 6; /* Dialogs / modals */
+    --z-popover: 7; /* Floating elements like popovers */
+    --z-tooltip: 8; /* Small tooltips or hints */
+    --z-toast: 9; /* Toast messages */
+    --z-top: 10; /* Always-on-top elements */
+}

@@ -1,0 +1,18 @@
+{
+    "pages": {
+        "home": "Bosh sahifa",
+        "channels": "Kanallar",
+        "streams": "Translyatsiyalar",
+        "ads": "Reklama",
+        "404": "404 - Sahifa topilmadi"
+    },
+    "footer": {
+        "assist-text": "Biz har doim sizga yordam berishga tayyormiz.",
+        "rights-reserved": "Barcha huquqlar himoyalangan.",
+        "company-project": "Kim tomonidan loyiha bajarildi",
+        "company-link-title": "Enzora veb-saytiga o‘tish — veb-sayt yaratish uchun veb-studiya"
+    },
+    "page-404": {
+        "description": "Sahifa topilmadi. Ehtimol, u o‘chirib tashlangan yoki siz noto‘g‘ri havolani bosgansiz."
+    }
+}

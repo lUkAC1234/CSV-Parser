@@ -1,0 +1,115 @@
+@use "assets/styles/helpers/functions";
+
+.lang-select-wrap {
+    display: block;
+    position: relative;
+    z-index: var(--z-dropdown);
+}
+
+.lang-select {
+    padding: functions.rem(8) functions.rem(12);
+    cursor: pointer;
+    color: var(--white);
+    transition: all var(--transition);
+    background: transparent;
+    border: none;
+    border-radius: var(--inner-radius);
+    min-width: functions.rem(90);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: calc(var(--base-gap) / 2);
+    background: var(--secondary-color);
+
+    & > svg {
+        width: functions.rem(16);
+        transition: all var(--transition);
+        opacity: 1;
+    }
+
+    &--active {
+        & > svg {
+            transform: rotateX(180deg);
+        }
+    }
+}
+
+.lang-select-option {
+    color: var(--black);
+
+    &--active {
+        background: var(--black);
+    }
+}
+
+.lang-dropdown {
+    position: absolute;
+    right: 0;
+    top: functions.rem(48);
+    background: var(--secondary-color);
+    border-radius: var(--inner-radius);
+    transition: all var(--transition);
+    visibility: hidden;
+    opacity: 0;
+    transform: scaleY(0);
+    transform-origin: top right;
+    padding: functions.rem(6);
+    overflow-y: auto;
+    overflow-x: hidden;
+    max-height: functions.rem(150);
+    width: 100%;
+
+    &--active {
+        visibility: visible;
+        opacity: 1;
+        transform: scaleY(1);
+        box-shadow: 0 0 functions.rem(16) rgba(0, 0, 0, 0.5);
+    }
+}
+
+.lang-list {
+    list-style: none;
+    display: flex;
+    flex-flow: column;
+
+    & > li {
+        width: 100%;
+    }
+}
+
+.lang-option {
+    width: 100%;
+    padding: functions.rem(4) functions.rem(16) functions.rem(4) functions.rem(4);
+    color: var(--text-color);
+    transition: all var(--transition);
+    border: none;
+    border-radius: var(--inner-radius);
+    background: transparent;
+    text-align: left;
+
+    &:not(&--active):hover {
+        color: var(--white);
+    }
+
+    &--active {
+        color: var(--accent-color);
+    }
+}
+
+.lang-select-bg {
+    position: fixed;
+    right: 0;
+    top: 0;
+    width: 0;
+    height: 0;
+    background: var(--white);
+    z-index: var(--z-content);
+    border-bottom-left-radius: 100%;
+    transition: all var(--transition);
+
+    &--active {
+        width: functions.rem(300);
+        height: functions.rem(300);
+        box-shadow: 0 0 functions.rem(48) rgba(0, 0, 0, 0.5);
+    }
+}
