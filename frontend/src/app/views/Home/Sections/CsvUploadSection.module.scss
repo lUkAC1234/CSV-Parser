@@ -1,0 +1,250 @@
+@use "assets/styles/helpers/functions";
+
+.section {
+    display: grid;
+    place-content: center;
+    min-height: 75dvh;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    padding: var(--base-padding);
+}
+
+.card {
+    width: 100%;
+    max-width: functions.rem(880);
+    background: linear-gradient(180deg, var(--base-color) 0%, #ffffff 100%);
+    border-radius: var(--inner-radius);
+    padding: var(--base-padding);
+    box-shadow: 0 functions.rem(12) functions.rem(30) rgba(16, 24, 40, 0.06);
+    border: functions.rem(1) solid rgba(99, 102, 241, 0.04);
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: var(--base-gap);
+    margin-bottom: var(--small-margin);
+}
+
+.title {
+    margin: 0;
+    color: var(--accent-color);
+}
+
+.total {
+    color: var(--muted-color);
+}
+
+.uploadRow {
+    display: flex;
+    gap: var(--base-gap);
+    align-items: center;
+    margin-bottom: var(--small-margin);
+    flex-wrap: wrap;
+}
+
+.fileLabel {
+    display: inline-flex;
+    align-items: center;
+    gap: functions.rem(10);
+    cursor: pointer;
+}
+
+.fileInput {
+    display: none;
+}
+
+.fileBtn {
+    background: linear-gradient(90deg, var(--accent-color), var(--hover-color));
+    color: var(--white);
+    padding: functions.rem(10) functions.rem(14);
+    border-radius: var(--inner-radius);
+    box-shadow: 0 functions.rem(8) functions.rem(20) rgba(26, 47, 251, 0.12);
+}
+
+.meta {
+    display: flex;
+    align-items: center;
+}
+
+.metaText {
+    color: var(--text-color);
+}
+
+.metaTextSmall {
+    color: var(--muted-color);
+}
+
+.errorList {
+    margin-bottom: var(--small-margin);
+}
+
+.error {
+    color: var(--error-color);
+    background: var(--error-background);
+    padding: functions.rem(8) functions.rem(10);
+    border-radius: var(--inner-radius);
+}
+
+.summary {
+    display: flex;
+    gap: var(--base-gap);
+    margin-bottom: var(--small-margin);
+    align-items: center;
+}
+
+.bad {
+    color: var(--error-color);
+}
+
+.good {
+    color: var(--success-color);
+}
+
+.preview {
+    margin-top: functions.rem(8);
+    overflow: auto;
+    border-radius: var(--inner-radius);
+    border: 1px solid rgba(0, 0, 0, 0.04);
+}
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.th {
+    text-align: left;
+    padding: var(--base-padding);
+    background: rgba(0, 0, 0, 0.02);
+}
+
+.table td {
+    padding: var(--base-padding);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+    vertical-align: top;
+}
+
+.rowError {
+    background: rgba(255, 240, 240, 0.6);
+}
+
+.cellLine {
+    width: functions.rem(48);
+}
+
+.cellPreview {
+    min-width: functions.rem(320);
+    max-width: functions.rem(520);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.cellErrors {
+    width: functions.rem(220);
+    color: var(--text-color);
+}
+
+.ok {
+    color: var(--success-color);
+}
+
+.previewNote {
+    padding: functions.rem(8);
+    color: var(--muted-color);
+    text-align: right;
+}
+
+.actions {
+    margin-top: functions.rem(12);
+    display: flex;
+    gap: var(--base-gap);
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.button {
+    background: linear-gradient(90deg, var(--accent-color), var(--hover-color));
+    color: var(--white);
+    padding: functions.rem(10) functions.rem(16);
+    border: none;
+    border-radius: var(--inner-radius);
+    cursor: pointer;
+    transition: transform 0.14s ease;
+    box-shadow: 0 functions.rem(8) functions.rem(22) rgba(26, 47, 251, 0.12);
+}
+
+.button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.success {
+    color: var(--success-color);
+    background: var(--success-background);
+    padding: functions.rem(8) functions.rem(10);
+    border-radius: var(--inner-radius);
+}
+
+.footer {
+    margin-top: functions.rem(14);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.note {
+    color: var(--muted-color);
+}
+
+@media screen and (max-width: 639px) {
+    .card {
+        padding: var(--base-padding);
+    }
+
+    .header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .uploadRow {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .fileBtn {
+        width: 100%;
+        text-align: center;
+    }
+
+    .metaTextSmall {
+        text-align: left;
+    }
+
+    .cellPreview {
+        min-width: 0;
+        white-space: normal;
+    }
+
+    .cellErrors {
+        width: auto;
+    }
+
+    .previewNote {
+        text-align: left;
+    }
+
+    .actions {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .button {
+        width: 100%;
+    }
+}

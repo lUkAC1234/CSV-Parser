@@ -3,14 +3,14 @@ import { bound } from "decorators/Bound";
 import MobxStore from "./Abstracts";
 import RootStore from "./RootStore";
 
-export const ORIGIN = import.meta.env.VITE_API_ORIGIN;
+export const ORIGIN = import.meta.env.VITE_API_ORIGIN ?? "";
 
-export type ApiMap = "/name";
+export type ApiMap = "/users";
 
 class ApiStore extends MobxStore {
     origin: string = ORIGIN;
     @observable api_map: ObservableMap<ApiMap, string> = observable.map([
-        ["/name", "/name/"],
+        ["/users", "/users/"],
     ]);
 
     constructor(rootStore: RootStore) {
@@ -20,13 +20,10 @@ class ApiStore extends MobxStore {
 
     @bound
     get(endpoint: ApiMap, id?: number | string): string | null {
-        let url = this.api_map.get(endpoint);
-        if (url) {
-            const api: string = `${ORIGIN}/api`;
-            url = `${api}${url}${id ? id : ""}`;
-        }
-
-        return url ?? null;
+        const path = this.api_map.get(endpoint);
+        if (!path) return null;
+        const api = `${this.origin}/api`;
+        return `${api}${path}${id ? id : ""}`;
     }
 
     @action.bound

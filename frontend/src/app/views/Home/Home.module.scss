@@ -1,0 +1,22 @@
+@use "assets/styles/helpers/functions";
+.button-container {
+    display: flex;
+    justify-content: flex-end;
+    padding: var(--base-padding);
+}
+
+.button {
+    background: linear-gradient(90deg, var(--accent-color), var(--hover-color));
+    color: var(--white);
+    padding: functions.rem(10) functions.rem(16);
+    border: none;
+    border-radius: var(--inner-radius);
+    cursor: pointer;
+    transition: transform 0.14s ease;
+    box-shadow: 0 functions.rem(8) functions.rem(22) rgba(26, 47, 251, 0.12);
+}
+
+.button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}

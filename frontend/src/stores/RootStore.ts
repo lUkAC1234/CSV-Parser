@@ -7,6 +7,7 @@ import WindowStore from "./Window";
 import FancyboxStore from "./Fancybox";
 import ApiStore from "./Api";
 import NavigationStore from "./Navigation";
+import UsersStore from "./Users";
 
 class RootStore {
     localeStore: LocaleStore;
@@ -16,12 +17,14 @@ class RootStore {
     loadingStore: LoadingStore;
     fancyboxStore: FancyboxStore;
     apiStore: ApiStore;
+    usersStore: UsersStore;
     navigationStore: NavigationStore;
 
     constructor() {
         this.localeStore = new LocaleStore(this);
         this.routerStore = new RouterStore(this);
         this.apiStore = new ApiStore(this);
+        this.usersStore = new UsersStore(this);
         this.connectionStore = new ConnectionStore(this);
         this.windowStore = new WindowStore(this);
         this.loadingStore = new LoadingStore(this);
