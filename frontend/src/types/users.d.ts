@@ -1,7 +1,4 @@
 export interface UsersModel {
-}
-
-export interface UsersState {
   username: string;
   password: string;
   submitting: boolean;

@@ -1,26 +1,18 @@
 import { action, type IObservableArray, makeObservable, observable } from "mobx";
 import { debounce } from "lodash";
-import { ComponentType } from "react";
 import RootStore from "./RootStore";
 import MobxStore from "./Abstracts";
-import HomeOutline from "components/SVG/Mobile/HomeOutline";
-import HomeActive from "components/SVG/Mobile/HomeActive";
 
 export type INavLink = {
     id: number;
     name: string;
     href: string;
-    svgId: string;
 };
 
 class NavigationStore extends MobxStore {
-    svgMap: Map<string, { outline: ComponentType<unknown>; active: ComponentType<unknown> }> = new Map([
-        ["home", { outline: HomeOutline, active: HomeActive }],
-    ]);
-
     @observable windowWidth: number = window.innerWidth;
     @observable links: IObservableArray<INavLink> = observable.array([
-        { id: 1, name: "pages.home", href: "/", svgId: "home" },
+        { id: 1, name: "pages.home", href: "/" },
     ]);
 
     constructor(rootStore: RootStore) {
@@ -44,12 +36,11 @@ class NavigationStore extends MobxStore {
     }
 
     @action.bound
-    addLink(name: string, href: string, svgId: string): void {
+    addLink(name: string, href: string): void {
         const links = this.links;
         this.links.push({
             name,
             href,
-            svgId,
             id: links.length > 1 ? links[links.length - 1].id : 1,
         });
     }

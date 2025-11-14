@@ -29,8 +29,8 @@ class CallRecord(models.Model):
     updated_at = models.DateTimeField("updated_at", auto_now=True)
 
     class Meta:
-        verbose_name = "Call record"
-        verbose_name_plural = "Call records"
+        verbose_name = "Csv Данный"
+        verbose_name_plural = "Csv Данные"
         ordering = ("-calldate",)
 
     def __str__(self):

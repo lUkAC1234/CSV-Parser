@@ -119,9 +119,9 @@ TEMPLATES = [
 WSGI_APPLICATION = "config.wsgi.application"
 
 UNFOLD = {
-    "SITE_TITLE": "Call Records",
-    "SITE_HEADER": "Call Records",
-    "SITE_URL": "/api/calls/create",
+    "SITE_TITLE": "Csv Данные",
+    "SITE_HEADER": "Csv Данные",
+    "SITE_URL": "/api/calls/bulk_create",
     "SHOW_HISTORY": True,
     "SHOW_VIEW_ON_SITE": True,
     "COLORS": {
@@ -212,7 +212,7 @@ TIME_ZONE = "Asia/Tashkent"
 USE_TZ = True
 
 STATIC_URL = "/static/"
-STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
+STATIC_ROOT = os.path.join(BASE_DIR, "static")
 STATICFILES_DIRS = [os.path.join(BASE_DIR, "assets")]
 
 MEDIA_URL = "/media/"

@@ -23,7 +23,7 @@ type State = {
 const REQUIRED_HEADERS = ["calldate", "src", "dst", "duration", "billsec", "disposition"];
 const phoneRe = /^[\d\+\-\s\(\)]{2,50}$/;
 
-export default class CsvUploadSection extends React.PureComponent<{}, State> {
+class CsvUploadSection extends React.PureComponent<{}, State> {
     constructor(props: {}) {
         super(props);
         this.state = {
@@ -214,7 +214,7 @@ export default class CsvUploadSection extends React.PureComponent<{}, State> {
             headerRow[0] = headerRow[0].replace(/^\uFEFF/, "");
             const headerCheck = this.validateHeaders(headerRow);
             if (!headerCheck.ok) {
-                this.setState({ parsing: false, errors: [headerCheck.reason || "Неверные заголовки"] });
+                this.setState({ parsing: false, errors: [headerCheck.reason || "Неверные заголовки. Проверьте, что CSV содержит заголовки: calldate, src, dst, duration, billsec, disposition"] });
                 return;
             }
             const mapIndices = headerCheck.map;
@@ -235,11 +235,69 @@ export default class CsvUploadSection extends React.PureComponent<{}, State> {
         }
     }
 
+    interpretServerErrors(data: any, status: number): string[] {
+        const out: string[] = [];
+        if (!data) {
+            out.push(`Сервер вернул статус ${status} без тела ответа. Проверьте лог сервера.`);
+            return out;
+        }
+        if (status === 401) {
+            out.push("Неавторизован (401). Проверьте токен авторизации.");
+            out.push("Проверьте в браузере наличие cookie 'auth_token' и что при запросе отправляется заголовок Authorization: Token <auth_token>.");
+            out.push("Если cookie есть, убедитесь что сервер ожидает 'Token ' префикс и что CORS/credentials настроены (fetch должен использовать credentials:'include').");
+            out.push("Попробуйте заново войти в систему (logout → login) и повторить загрузку.");
+            return out;
+        }
+        if (status === 403) {
+            out.push("Доступ запрещён (403). Токен действителен, но у пользователя нет прав.");
+            out.push("Проверьте, что пользователь, под которым вы вошли, имеет необходимые права и что эндпоинт действительно защищён нужной логикой (проверьте настройки permission_classes на сервере).");
+            return out;
+        }
+        if (status === 400) {
+            if (Array.isArray(data.errors)) {
+                out.push(`Сервер вернул ошибки в ${data.errors.length} строк(е/ах):`);
+                for (const e of data.errors) {
+                    const line = e.line ?? "?";
+                    if (Array.isArray(e.errors)) {
+                        out.push(`Строка ${line}: ${e.errors.join("; ")}`);
+                        for (const msg of e.errors) {
+                            if (msg.toLowerCase().includes("calldate")) out.push(`Строка ${line} — исправить calldate: используйте ISO 8601 (2023-01-31T12:34:56Z) или формат MM/DD/YYYY HH:MM:SS.`);
+                            if (msg.toLowerCase().includes("src") || msg.toLowerCase().includes("dst")) out.push(`Строка ${line} — номера src/dst: оставьте только цифры и знаки + - пробелы скобки; длина ≤ 64.`);
+                            if (msg.toLowerCase().includes("duration") || msg.toLowerCase().includes("billsec")) out.push(`Строка ${line} — duration/billsec: целое число ≥ 0, без дробной части и пробелов.`);
+                            if (msg.toLowerCase().includes("disposition")) out.push(`Строка ${line} — disposition: используйте 'answered', 'no answer' или любую строку; при загрузке возможна нормализация в ANSWERED/NO ANSWER/OTHER.`);
+                        }
+                    } else {
+                        out.push(`Строка ${line}: ${String(e.errors)}`);
+                    }
+                }
+                out.push("После исправления ошибок повторите загрузку. Для локальной проверки откройте CSV и проверьте проблемные строки по номерам.");
+                return out;
+            }
+            if (data.detail) {
+                out.push(`Сервер: ${String(data.detail)}`);
+                if (String(data.detail).toLowerCase().includes("records должен")) out.push("Проверьте, что вы отправляете JSON с ключом records: [{...}, {...}]");
+                return out;
+            }
+        }
+        if (status >= 500) {
+            out.push(`Ошибка сервера (${status}). Попробуйте позже и проверьте логи сервера.`);
+            if (data.detail) out.push(String(data.detail));
+            return out;
+        }
+        if (data.errors || data.detail) {
+            if (data.errors) out.push(JSON.stringify(data.errors));
+            if (data.detail) out.push(String(data.detail));
+            return out;
+        }
+        out.push("Не удалось распарсить ответ сервера.");
+        return out;
+    }
+
     handleSend = async () => {
         const { rows } = this.state;
         const rowsWithErrors = rows.filter((r) => r.errors.length);
         if (rowsWithErrors.length) {
-            this.setState({ errors: [`Есть ${rowsWithErrors.length} строк(и) с ошибками`] });
+            this.setState({ errors: [`Есть ${rowsWithErrors.length} строк(и) с ошибками. Исправьте их перед отправкой.`] });
             return;
         }
         if (!rows.length) {
@@ -260,24 +318,32 @@ export default class CsvUploadSection extends React.PureComponent<{}, State> {
         });
         try {
             const csrftoken = this.getCookie("csrftoken");
+            const authToken = this.getCookie("auth_token");
+            const headers: Record<string, string> = { "Content-Type": "application/json" };
+            if (csrftoken) headers["X-CSRFToken"] = csrftoken;
+            if (authToken) headers["Authorization"] = `Token ${authToken}`;
             const res = await fetch(`${ORIGIN}/api/calls/bulk_create/`, {
                 method: "POST",
-                headers: { "Content-Type": "application/json", ...(csrftoken ? { "X-CSRFToken": csrftoken } : {}) },
+                headers,
                 credentials: "include",
                 body: JSON.stringify({ records: payload }),
             });
             const data = await res.json().catch(() => null);
             if (res.ok) {
-                this.setState({ submitting: false, success: `Создано ${payload.length} записей`, rows: [], headers: [], fileName: "", parsed: false });
+                const created = typeof data?.created === "number" ? data.created : payload.length;
+                this.setState({ submitting: false, success: `Успех — создано ${created} записей`, rows: [], headers: [], fileName: "", parsed: false, errors: [] });
             } else {
-                const formatted: string[] = [];
-                if (data?.errors) formatted.push(JSON.stringify(data.errors));
-                else if (data?.detail) formatted.push(String(data.detail));
-                else formatted.push("Сервер вернул ошибку");
-                this.setState({ submitting: false, errors: formatted });
+                const details = this.interpretServerErrors(data, res.status);
+                this.setState({ submitting: false, errors: details, success: "" });
             }
         } catch (err: any) {
-            this.setState({ submitting: false, errors: [String(err?.message || err)] });
+            const netMsg = String(err?.message || err);
+            const suggestions = [
+                `Ошибка сети: ${netMsg}`,
+                "Проверьте подключение к интернету и доступность сервера.",
+                "Проверьте в DevTools запрос: URL, Request headers, Request payload и Response body.",
+            ];
+            this.setState({ submitting: false, errors: suggestions, success: "" });
         }
     };
 
@@ -322,9 +388,11 @@ export default class CsvUploadSection extends React.PureComponent<{}, State> {
                             </label>
                             <div className={styles.meta}>
                                 {parsing && <div className={styles.metaText}>Парсинг…</div>}
-                                {!parsing && !fileName && <div className={styles.metaTextSmall}>Заголовки: calldate,src,dst,duration,billsec,disposition</div>}
+                                {!parsing && parsed && <div className={styles.metaTextSmall}>Готово к отправке: {goodCount} / {rows.length}</div>}
                             </div>
                         </div>
+
+                        {success && <div className={styles.success} role="status">{success}</div>}
 
                         {errors.length > 0 && <div className={styles.errorList}>{errors.map((e, i) => <div key={i} className={styles.error}>{e}</div>)}</div>}
 
@@ -357,7 +425,6 @@ export default class CsvUploadSection extends React.PureComponent<{}, State> {
                                     <button className={styles.button} onClick={this.handleSend} disabled={submitting || badCount > 0 || goodCount === 0}>
                                         {submitting ? "Отправка…" : `Отправить ${goodCount}`}
                                     </button>
-                                    {success && <div className={styles.success}>{success}</div>}
                                 </div>
                             </>
                         )}
@@ -371,3 +438,5 @@ export default class CsvUploadSection extends React.PureComponent<{}, State> {
         );
     }
 }
+
+export default CsvUploadSection;

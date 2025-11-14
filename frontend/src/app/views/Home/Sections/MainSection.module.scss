@@ -1,10 +1,13 @@
 @use "assets/styles/helpers/functions";
 
 .section {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
   display: grid;
   place-items: center;
   padding: var(--base-padding);
-  height: 100dvh;
   width: 100%;
 }
 

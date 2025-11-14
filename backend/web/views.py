@@ -10,10 +10,6 @@ from .serializers import CallRecordSerializer
 from rest_framework.permissions import IsAuthenticated
 from UserAuth.auth import InMemoryTokenAuthentication
 
-class CallsRecordView(CreateAPIView):
-    queryset = CallRecord.objects.all()
-    serializer_class = CallRecordSerializer
-
 class BulkCallsCreateView(APIView):
     authentication_classes = [InMemoryTokenAuthentication]
     permission_classes = [IsAuthenticated]

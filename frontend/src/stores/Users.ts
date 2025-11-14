@@ -9,7 +9,8 @@ const TOKEN_KEY = "auth_token";
 
 function getCookie(name: string): string | null {
     if (typeof document === "undefined") return null;
-    const match = document.cookie.match(new RegExp("(^|;)\\s*" + name.replace(/[-.*+?^${}()|[\]\\]/g, "\\$&") + "=([^;]*)"));
+    const escapedName = name.replace(/[-.*+?^${}()|[\]\\]/g, "\\$&");
+    const match = document.cookie.match(new RegExp(`(^|;)\\s*${escapedName}=([^;]*)`));
     return match ? decodeURIComponent(match[2]) : null;
 }
 
